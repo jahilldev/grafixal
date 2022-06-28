@@ -3176,6 +3176,11 @@ text-table@^0.2.0:
   resolved "https://npm.groupondev.com:443/api/npm/npm-release/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
+three@^0.141.0:
+  version "0.141.0"
+  resolved "https://npm.groupondev.com:443/api/npm/npm-release/three/-/three-0.141.0.tgz#16677a12b9dd0c3e1568ebad0fd09de15d5a8216"
+  integrity sha1-Fmd6ErndDD4VaOutD9Cd4V1aghY=
+
 thunky@^1.0.2:
   version "1.1.0"
   resolved "https://npm.groupondev.com:443/api/npm/npm-release/thunky/-/thunky-1.1.0.tgz#5abaf714a9405db0504732bbccd2cedd9ef9537d"

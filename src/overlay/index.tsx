@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import * as actions from '@/actions';
 import style from './index.module.scss';
 
 /* -----------------------------------
@@ -8,6 +9,7 @@ import style from './index.module.scss';
  * -------------------------------- */
 
 interface IProps {
+  sceneActions: typeof actions;
   canvasElement: HTMLCanvasElement;
 }
 

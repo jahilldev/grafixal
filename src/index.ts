@@ -1,6 +1,7 @@
 import { h, render } from 'preact';
 import { createCanvas } from '@/utility/canvasHelper.utility';
 import { Overlay } from '@/overlay';
+import * as sceneActions from './actions';
 import '@/styles/global.scss';
 
 // https://vimeo.com/125095515
@@ -17,9 +18,18 @@ const canvasElement = createCanvas();
 
 /* -----------------------------------
  *
+ * Actions
+ *
+ * -------------------------------- */
+
+sceneActions.setup(canvasElement);
+sceneActions.start();
+
+/* -----------------------------------
+ *
  * Application
  *
  * -------------------------------- */
 
 document.body.prepend(canvasElement);
-render(h(Overlay, { canvasElement }), rootElement!);
+render(h(Overlay, { sceneActions, canvasElement }), rootElement!);
