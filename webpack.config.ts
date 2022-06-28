@@ -44,7 +44,7 @@ const sassLoader = {
  *
  * -------------------------------- */
 
-module.exports = ({ mode = 'development' }): Configuration => ({
+module.exports = ({ mode = 'development' }) => ({
   mode,
   entry: './src/index.ts',
   resolve: {
@@ -118,15 +118,4 @@ module.exports = ({ mode = 'development' }): Configuration => ({
       },
     }),
   ],
-  ...({
-    devServer: {
-      devMiddleware: {
-        // index: true,
-        // mimeTypes: { phtml: 'text/html' },
-        // publicPath: '/publicPathForDevServe',
-        // serverSideRender: true,
-        writeToDisk: true,
-      },
-    },
-  } as any),
 });
