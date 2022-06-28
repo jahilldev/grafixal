@@ -8,10 +8,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "prestart": "run-s clean",
-    "start": "run-p watch serve",
+    "start": "run-s clean serve",
     "build": "webpack --mode=production",
-    "watch": "webpack --watch",
     "serve": "webpack-dev-server --mode development --open --hot",
     "clean": "rimraf ./dist",
     "lint": "eslint",
