@@ -1,5 +1,5 @@
 import { h, render } from 'preact';
-import { createCanvas } from '@/utility/createCanvas.utility';
+import { createCanvas } from '@/utility/canvasHelper.utility';
 import { Overlay } from '@/overlay';
 import '@/styles/global.scss';
 

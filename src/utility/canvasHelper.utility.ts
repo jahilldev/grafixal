@@ -1,18 +1,10 @@
 /* -----------------------------------
  *
- * Variables
- *
- * -------------------------------- */
-
-let canvasElement: HTMLCanvasElement;
-
-/* -----------------------------------
- *
  * onResize
  *
  * -------------------------------- */
 
-function onResize(canvas) {
+function onResize(canvasElement: HTMLCanvasElement) {
   if (!canvasElement) {
     return;
   }
@@ -28,7 +20,7 @@ function onResize(canvas) {
  * -------------------------------- */
 
 function createCanvas(elementId = CANVAS) {
-  canvasElement = document.createElement('canvas');
+  const canvasElement = document.createElement('canvas');
 
   canvasElement.id = elementId;
   canvasElement.width = window.innerWidth;

@@ -17,8 +17,8 @@ interface IProps {
  *
  * -------------------------------- */
 
-function Overlay(props: IProps) {
-  console.log('Overlay()', props);
+function Overlay({ canvasElement }: IProps) {
+  console.log('Overlay()', { canvasElement });
 
   return <div class={style.wrapper}>OVERLAY</div>;
 }
