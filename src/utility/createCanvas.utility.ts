@@ -27,7 +27,7 @@ function onResize(canvas) {
  *
  * -------------------------------- */
 
-function createCanvas(elementId = __CANVAS__) {
+function createCanvas(elementId = CANVAS) {
   canvasElement = document.createElement('canvas');
 
   canvasElement.id = elementId;

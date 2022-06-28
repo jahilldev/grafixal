@@ -12,7 +12,7 @@ console.log('💫 Do it, just do it');
  *
  * -------------------------------- */
 
-const rootElement = document.querySelector(__OVERLAY__);
+const rootElement = document.querySelector(OVERLAY);
 const canvasElement = createCanvas();
 
 /* -----------------------------------
