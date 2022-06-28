@@ -8,9 +8,11 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "run-s clean watch",
+    "prestart": "run-s clean",
+    "start": "run-p watch serve",
     "build": "webpack --mode=production",
-    "watch": "webpack-dev-server --mode development --open --hot",
+    "watch": "webpack --watch",
+    "serve": "webpack-dev-server --mode development --open --hot",
     "clean": "rimraf ./dist",
     "lint": "eslint",
     "test": "jest"

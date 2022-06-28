@@ -17,6 +17,7 @@
     "incremental": true,
     "jsx": "react",
     "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
     "paths": {
       "@/*": ["./src/*"]
     },

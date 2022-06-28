@@ -1,5 +1,5 @@
 import path from 'path';
-import { DefinePlugin } from 'webpack';
+import { Configuration, DefinePlugin } from 'webpack';
 
 /* -----------------------------------
  *
@@ -44,7 +44,8 @@ const sassLoader = {
  *
  * -------------------------------- */
 
-module.exports = {
+module.exports = ({ mode = 'development' }): Configuration => ({
+  mode,
   entry: './src/index.ts',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
@@ -66,7 +67,7 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         exclude: /\.module\.(sa|sc|c)ss$/,
         use: [
-          ExtractCssPlugin.loader,
+          mode === 'production' ? ExtractCssPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -81,7 +82,7 @@ module.exports = {
       {
         test: /\.module\.(sa|sc|c)ss$/,
         use: [
-          ExtractCssPlugin.loader,
+          mode === 'production' ? ExtractCssPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -117,4 +118,15 @@ module.exports = {
       },
     }),
   ],
-};
+  ...({
+    devServer: {
+      devMiddleware: {
+        // index: true,
+        // mimeTypes: { phtml: 'text/html' },
+        // publicPath: '/publicPathForDevServe',
+        // serverSideRender: true,
+        writeToDisk: true,
+      },
+    },
+  } as any),
+});
