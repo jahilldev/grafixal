@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
+    "module": "esnext",
+    "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
@@ -11,8 +11,21 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "target": "ES2018",
+    "strict": true,
     "sourceMap": true,
+    "resolveJsonModule": true,
+    "incremental": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "lib": ["DOM", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019"]
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
   },
   "exclude": ["node_modules", "webpack.config.ts", "tests", "./dist"]
 }
