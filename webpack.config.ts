@@ -12,6 +12,15 @@ const ExtractCssPlugin = require('mini-css-extract-plugin');
 
 /* -----------------------------------
  *
+ * Constants
+ *
+ * -------------------------------- */
+
+const OVERLAY = 'overlay';
+const CANVAS = 'canvas';
+
+/* -----------------------------------
+ *
  * SASS
  *
  * -------------------------------- */
@@ -94,14 +103,18 @@ module.exports = {
   },
   plugins: [
     new DefinePlugin({
-      __CANVAS__: '"#canvas"',
-      __OVERLAY__: '"#overlay"',
+      CANVAS: `"#${CANVAS}"`,
+      OVERLAY: `"#${OVERLAY}"`,
     }),
     new ExtractCssPlugin({
       filename: 'assets/[name].css',
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      templateParameters: {
+        siteTitle: 'Gafixal',
+        overlayId: OVERLAY,
+      },
     }),
   ],
 };
