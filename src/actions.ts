@@ -1,12 +1,5 @@
-import {
-  BoxBufferGeometry,
-  Color,
-  Mesh,
-  MeshBasicMaterial,
-  PerspectiveCamera,
-  Scene,
-  WebGLRenderer,
-} from 'three';
+import { Color, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+import { spinningHedron } from '@/scene/spinningHedron.scene';
 import { onResize } from '@/utility/canvasHelper.utility';
 
 /* -----------------------------------
@@ -18,7 +11,6 @@ import { onResize } from '@/utility/canvasHelper.utility';
 const scene = new Scene();
 let renderer: WebGLRenderer;
 let camera: PerspectiveCamera;
-let spinningCube: Mesh;
 let isPaused = false;
 
 /* -----------------------------------
@@ -37,12 +29,7 @@ function setup(canvas: HTMLCanvasElement) {
   camera = new PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
   camera.position.set(0, 0, 10);
 
-  spinningCube = new Mesh(
-    new BoxBufferGeometry(2, 2, 2),
-    new MeshBasicMaterial({ color: 0x00ff00, wireframe: true })
-  );
-
-  scene.add(spinningCube);
+  scene.add(spinningHedron);
 
   renderer = new WebGLRenderer({ canvas });
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -86,8 +73,8 @@ function animate() {
 
   requestAnimationFrame(animate);
 
-  spinningCube.rotation.x += 0.008;
-  spinningCube.rotation.y += 0.008;
+  spinningHedron.rotation.x += 0.008;
+  spinningHedron.rotation.y += 0.008;
 
   renderer.render(scene, camera);
 }
