@@ -20,8 +20,6 @@ let isPaused = false;
  * -------------------------------- */
 
 function setup(canvas: HTMLCanvasElement) {
-  scene.background = new Color('black');
-
   const fieldOfView = 35;
   const aspectRatio = window.innerWidth / window.innerHeight;
   const [nearPlane, farPlane] = [0.1, 100];
@@ -29,6 +27,7 @@ function setup(canvas: HTMLCanvasElement) {
   camera = new PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
   camera.position.set(0, 0, 10);
 
+  scene.background = new Color('black');
   scene.add(spinningHedron);
 
   renderer = new WebGLRenderer({ canvas });
