@@ -15,9 +15,9 @@ import {
  * -------------------------------- */
 
 const scene = new Scene();
-let canvasElement: HTMLCanvasElement;
 let renderer: WebGLRenderer;
 let camera: PerspectiveCamera;
+let spinningCube: Mesh;
 let isPaused = false;
 
 /* -----------------------------------
@@ -27,25 +27,23 @@ let isPaused = false;
  * -------------------------------- */
 
 function setup(canvas: HTMLCanvasElement) {
-  canvasElement = canvas;
-
   scene.background = new Color('black');
 
-  const fov = 35; // Field of view
-  const aspect = canvasElement.clientWidth / canvasElement.clientHeight;
-  const near = 0.1; // Near clipping plane
-  const far = 100; // Far clipping plane
+  const fieldOfView = 35;
+  const aspectRatio = window.innerWidth / window.innerHeight;
+  const [nearPlane, farPlane] = [0.1, 100];
 
-  camera = new PerspectiveCamera(fov, aspect, near, far);
+  camera = new PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
   camera.position.set(0, 0, 10);
 
-  const geometry = new BoxBufferGeometry(2, 2, 2);
-  const material = new MeshBasicMaterial();
-  const cube = new Mesh(geometry, material);
+  spinningCube = new Mesh(
+    new BoxBufferGeometry(2, 2, 2),
+    new MeshBasicMaterial({ color: 0x00ff00, wireframe: true })
+  );
 
-  scene.add(cube);
+  scene.add(spinningCube);
 
-  renderer = new WebGLRenderer({ canvas: canvasElement });
+  renderer = new WebGLRenderer({ canvas });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
 }
@@ -83,10 +81,12 @@ function animate() {
     return;
   }
 
-  renderer.render(scene, camera);
-  renderer.setSize(window.innerWidth, window.innerHeight);
-
   requestAnimationFrame(animate);
+
+  spinningCube.rotation.x += 0.008;
+  spinningCube.rotation.y += 0.008;
+
+  renderer.render(scene, camera);
 }
 
 /* -----------------------------------

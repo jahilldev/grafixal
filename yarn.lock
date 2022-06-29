@@ -276,6 +276,18 @@
   dependencies:
     "@types/node" "*"
 
+"@types/three@^0.141.0":
+  version "0.141.0"
+  resolved "https://npm.groupondev.com:443/api/npm/npm-release/@types/three/-/three-0.141.0.tgz#d9d81a54b28ebc2a56931dfd4d9c54d25c20d6c8"
+  integrity sha1-2dgaVLKOvCpWkx39TZxU0lwg1sg=
+  dependencies:
+    "@types/webxr" "*"
+
+"@types/webxr@*":
+  version "0.4.0"
+  resolved "https://npm.groupondev.com:443/api/npm/npm-release/@types/webxr/-/webxr-0.4.0.tgz#ad06c96a324293e0d5175d13dd5ded5931f90ba3"
+  integrity sha1-rQbJajJCk+DVF10T3V3tWTH5C6M=
+
 "@types/ws@^8.5.1":
   version "8.5.3"
   resolved "https://npm.groupondev.com:443/api/npm/npm-release/@types/ws/-/ws-8.5.3.tgz#7d25a1ffbecd3c4f2d35068d0b283c037003274d"
