@@ -1,16 +1,28 @@
 /* -----------------------------------
  *
+ * Variables
+ *
+ * -------------------------------- */
+
+let canvasElement: HTMLCanvasElement;
+
+/* -----------------------------------
+ *
  * onResize
  *
  * -------------------------------- */
 
-function onResize(canvasElement: HTMLCanvasElement) {
+function onResize(callback?: Function) {
   if (!canvasElement) {
+    console.error('onResize: canvasElement is not defined, call createCanvas first');
+
     return;
   }
 
   canvasElement.width = window.innerWidth;
   canvasElement.height = window.innerHeight;
+
+  callback && callback(canvasElement);
 }
 
 /* -----------------------------------
@@ -20,15 +32,13 @@ function onResize(canvasElement: HTMLCanvasElement) {
  * -------------------------------- */
 
 function createCanvas(elementId = CANVAS) {
-  const canvasElement = document.createElement('canvas');
+  canvasElement = document.createElement('canvas');
 
   canvasElement.id = elementId;
   canvasElement.width = window.innerWidth;
   canvasElement.height = window.innerHeight;
   canvasElement.style.width = '100%';
   canvasElement.style.height = '100%';
-
-  window.addEventListener('resize', () => onResize(canvasElement));
 
   return canvasElement;
 }
@@ -39,4 +49,4 @@ function createCanvas(elementId = CANVAS) {
  *
  * -------------------------------- */
 
-export { createCanvas };
+export { createCanvas, onResize };

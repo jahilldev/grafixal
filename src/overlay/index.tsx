@@ -19,7 +19,7 @@ interface IProps {
  *
  * -------------------------------- */
 
-function Overlay({ canvasElement }: IProps) {
+function Overlay({ sceneActions, canvasElement }: IProps) {
   console.log('Overlay()', { canvasElement });
 
   return <div class={style.wrapper}>OVERLAY</div>;

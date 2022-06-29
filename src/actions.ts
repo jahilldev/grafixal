@@ -7,6 +7,7 @@ import {
   Scene,
   WebGLRenderer,
 } from 'three';
+import { onResize } from '@/utility/canvasHelper.utility';
 
 /* -----------------------------------
  *
@@ -46,6 +47,8 @@ function setup(canvas: HTMLCanvasElement) {
   renderer = new WebGLRenderer({ canvas });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
+
+  window.addEventListener('resize', () => onResize(resize), false);
 }
 
 /* -----------------------------------
@@ -91,8 +94,21 @@ function animate() {
 
 /* -----------------------------------
  *
+ * Resize
+ *
+ * -------------------------------- */
+
+function resize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+/* -----------------------------------
+ *
  * Export
  *
  * -------------------------------- */
 
-export { setup, start, stop };
+export { setup, start, stop, resize };
